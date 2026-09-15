@@ -52,12 +52,24 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Baixar da ANEEL
+        env:
+          FONTE: ${{ inputs.fonte || 'auto' }}
+          ANOS: ${{ inputs.anos || 'todos' }}
+          INDICADORES: ${{ inputs.indicadores || 'DEC,FEC,NumCon' }}
+          CSV_PLANO: ${{ inputs.csv_plano }}
         run: |
+          # A comparacao com "true" e feita aqui no shell de proposito.
+          # Nas expressoes do GitHub, uma entrada booleana chega como a STRING
+          # "false", e string nao vazia e verdadeira ali: a forma
+          # ${{ inputs.csv_plano && '--csv-plano' || '' }} passaria a flag mesmo
+          # com a caixa desmarcada.
+          EXTRA=""
+          if [ "$CSV_PLANO" = "true" ]; then EXTRA="--csv-plano"; fi
           python scripts/baixar_aneel.py \
-            --fonte "${{ inputs.fonte || 'auto' }}" \
-            --anos "${{ inputs.anos || 'todos' }}" \
-            --indicadores "${{ inputs.indicadores || 'DEC,FEC,NumCon' }}" \
-            ${{ inputs.csv_plano && '--csv-plano' || '' }}
+            --fonte "$FONTE" \
+            --anos "$ANOS" \
+            --indicadores "$INDICADORES" \
+            $EXTRA
 
       - name: Commitar se algo mudou
         run: |
