@@ -45,7 +45,7 @@ Direto do repositório, sem baixar nada à mão:
 ```python
 import pandas as pd
 
-RAW = ("https://raw.githubusercontent.com/<seu-usuario>/"
+RAW = ("https://raw.githubusercontent.com/allanmikayo/"
        "setorial-energia-eletrica/main/data/")
 
 apurados = pd.read_parquet(RAW + "aneel_continuidade_apurados.parquet")

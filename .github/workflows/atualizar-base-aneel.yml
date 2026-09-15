@@ -1,0 +1,66 @@
+name: Atualizar base ANEEL (DEC/FEC)
+
+# Roda só quando você mandar: aba Actions -> este workflow -> "Run workflow".
+# Para ligar atualização automática, descomente o bloco schedule abaixo.
+# A ANEEL publica mensalmente; dia 10 às 09:00 UTC (06:00 em Brasília) é seguro.
+on:
+  workflow_dispatch:
+    inputs:
+      anos:
+        description: 'Anos a baixar (ex.: 2024,2025) ou "todos"'
+        required: false
+        default: 'todos'
+      indicadores:
+        description: 'Indicadores dos apurados, ou "todos" para as parcelas desagregadas'
+        required: false
+        default: 'DEC,FEC,NumCon'
+      csv_plano:
+        description: 'Gravar CSV sem gzip (arquivos bem maiores no repo)'
+        type: boolean
+        required: false
+        default: false
+  # schedule:
+  #   - cron: '0 9 10 * *'
+
+concurrency:
+  group: base-aneel
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  baixar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Instalar dependências
+        run: pip install -r requirements.txt
+
+      - name: Baixar da API da ANEEL
+        run: |
+          python scripts/baixar_aneel.py \
+            --anos "${{ inputs.anos || 'todos' }}" \
+            --indicadores "${{ inputs.indicadores || 'DEC,FEC,NumCon' }}" \
+            ${{ inputs.csv_plano && '--csv-plano' || '' }}
+
+      - name: Commitar se algo mudou
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "Base inalterada desde a última atualização — nada a commitar."
+            echo "Base **inalterada** desde a última atualização." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git commit -m "dados: base ANEEL de continuidade em $(date -u +%Y-%m-%d)"
+          git push
