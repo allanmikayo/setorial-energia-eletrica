@@ -1,0 +1,118 @@
+{
+  "baixado_em_utc": "2026-09-15T12:26:59Z",
+  "fonte": {
+    "apurados": "arquivo",
+    "limites": "arquivo",
+    "dominio": "api"
+  },
+  "pedido": {
+    "anos": "todos",
+    "indicadores": "DEC,FEC,NumCon"
+  },
+  "cobertura": {
+    "anos_apurados": [
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "anos_limites": [
+      "1990",
+      "1996",
+      "1997",
+      "1998",
+      "1999",
+      "2000",
+      "2001",
+      "2002",
+      "2003",
+      "2004",
+      "2005",
+      "2006",
+      "2007",
+      "2008",
+      "2009",
+      "2010",
+      "2011",
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026",
+      "2027",
+      "2028",
+      "2029",
+      "2030",
+      "2031",
+      "2032"
+    ],
+    "meses_presentes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "ultimo_mes_apurado": "2026-08"
+  },
+  "origem": {
+    "portal": "https://dadosabertos.aneel.gov.br/dataset/indicadores-coletivos-de-continuidade-dec-e-fec",
+    "recurso_apurados": "indicadores-continuidade-coletivos-2020-2029.parquet",
+    "recurso_apurados_modificado_em": "2026-09-05T05:16:06.549100",
+    "recurso_limites": "indicadores-continuidade-coletivos-limite",
+    "recurso_limites_modificado_em": "2026-09-05T05:27:08.112020",
+    "geracao_apurados": "2026-09-05",
+    "geracao_limites": "2026-09-05"
+  },
+  "linhas": {
+    "apurados": 741655,
+    "limites": 263401,
+    "dominio": 484
+  },
+  "arquivos": {
+    "aneel_continuidade_apurados.csv": {
+      "bytes": 61647562,
+      "sha256": "b89dbfc48cdc9cb9201fdf32b0b7fa71262d51c59fe2fe1e092bd55aa2db9394"
+    },
+    "aneel_continuidade_apurados.parquet": {
+      "bytes": 5967818,
+      "sha256": "37bf279064bb19e81f03685f593fc3dbb8f091bf3313314f97e6cd1dac73bbca"
+    },
+    "aneel_continuidade_limites.csv": {
+      "bytes": 21917070,
+      "sha256": "b66094f89e59a99f537bc28314fa96a603e6c9d1cbafeeeeece3f3945575ead5"
+    },
+    "aneel_continuidade_limites.parquet": {
+      "bytes": 1796874,
+      "sha256": "ff0db5609791bd77b1be4cb990b82528e0d3a58946f56343ec922e53cccb2415"
+    },
+    "aneel_dominio_indicadores.csv": {
+      "bytes": 42946,
+      "sha256": "e412ec40b5b27b54b0c8c83f9b76d39279afeb9ccc476721597ae852791fceeb"
+    },
+    "aneel_dominio_indicadores.parquet": {
+      "bytes": 13561,
+      "sha256": "9555cad1646edebbc751b6c1941519aa7b9dcf75858b615b55d1a68c367480ba"
+    }
+  }
+}

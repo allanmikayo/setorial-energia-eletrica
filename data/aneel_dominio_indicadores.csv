@@ -1,0 +1,485 @@
+﻿DatGeracaoConjuntoDados,SigIndicador,DscIndicador
+2026-09-05,AREA,"Área do conj., expressa em km2, correspondente a área geogr. e não a área elétr."
+2026-09-05,AREAT,Área do conjunto em km2
+2026-09-05,CM,Encargo de uso do sistema de distribuição aplicado à unidade cons. (mensal)
+2026-09-05,CMA,Encargo de uso do sistema de distribuição aplicado à unidade consumidora (anual)
+2026-09-05,CMM,"Consumo médio mensal, em MWh, média aritmética simples do último ano, excluin-"
+2026-09-05,CMMT,Consumo médio mensal em MWh
+2026-09-05,CMMTCO,Energia cons comercial nos últimos 12 meses (ano móvel) MT e BT
+2026-09-05,CMMTIN,Energia cons industrial nos últimos 12 meses (ano móvel)  MT e BT
+2026-09-05,CMMTOU,Energia cons outras classes nos últimos 12 meses (ano móvel) MT e BT
+2026-09-05,CMMTRE,Energia cons residencial nos últimos 12 meses (ano móvel) MT e BT
+2026-09-05,CMMTRU,Energia cons rural nos últimos 12 meses (ano móvel) MT e BT
+2026-09-05,CMT,Encargo de uso do sistema de distribuição aplicado à unidade cons. (trimestral)
+2026-09-05,CODCLSUC,Código da Classe da Unidade Consumidora
+2026-09-05,CODCLSUCA,Código da Classe da Unidade Consumidora
+2026-09-05,CODCLSUCT,Código da Classe da Unidade Consumidora
+2026-09-05,CODMUNUC,Código do Munícipio do Consumidor
+2026-09-05,CODMUNUCA,Código do Munícipio do Consumidor
+2026-09-05,CODMUNUCT,Código do Munícipio do Consumidor
+2026-09-05,COMPCONF,Compensação de UC atendida fora dos limites previstos de DRP ou DRC
+2026-09-05,COMPCONT,"Compensação pela violação do DIC, FIC ou DMIC"
+2026-09-05,COMPCONTA,"Compensação pela violação do DIC, FIC ou DMIC"
+2026-09-05,COMPCONTT,"Compensação pela violação do DIC, FIC ou DMIC"
+2026-09-05,CRAfedMed,Créd. Prazo Viol. de solicitações de aferição dos medidores (art. 137)
+2026-09-05,CRAnProj,Créd. Prazo Viol. de informação do resultado da análise do projeto (art. 27-B)
+2026-09-05,CRCmsnObra,Créd. Prazo Viol. de Comissionamento das obras. (art. 37)
+2026-09-05,CREstProj,"Créd. Prazo Viol. por estudos, orçamentos e projetos por obras (art. 32)"
+2026-09-05,CRInform,Créd. Prazo Viol. de informação da relação dos atendimentos (art. 199)
+2026-09-05,CRLigA,Créd. Prazo Viol. por ligação de unidade consumidora do grupo A (art. 31)
+2026-09-05,CRLigBRr,Créditos cedidos por ligação de consumidor do grupo B em área rural (art. 31)
+2026-09-05,CRLigBUb,Créd. Prazo Viol. por ligação de consumidor do grupo B em área urbana (art. 31)
+2026-09-05,CRNvCmsn,Créd. Prazo Viol. de Novo comissionamento quando de reprovação. (art. 37)
+2026-09-05,CRObGerais,Créd. Prazo Viol. de Conclusão de obra não abrang. nos inc. I e II do art. 34.
+2026-09-05,CRObra,Créd. Prazo Viol. por Início das Obras (art. 34)
+2026-09-05,CRObraPrim,Créd. Prazo Viol. de Conclusão das obras de até 1 km na rede prim. (art. 34)
+2026-09-05,CRObraSec,Créd. Prazo Viol. de Conclusão das obras na rede tensão secundária. (art. 34)
+2026-09-05,CRPgtoRsc,"Créd. Prazo Viol. de ressarc. por meio do pgto, conserto ou subst. (art. 208)"
+2026-09-05,CRRclCobr,Créd. Prazo Viol. de reclamação de cobrança ou devol. de diferenças (art. 133)
+2026-09-05,CRRclDano,Créd. Prazo Viol. de solução ref. à danos não elétricos reclamados (art. 197)
+2026-09-05,CRRclVisTc,Créd. Prazo Viol. de solução de reclamação com visita técnica (art. 197)
+2026-09-05,CRReanProj,Créd. Prazo Viol. de reanálise do projeto por falta de informação (art. 27-B)
+2026-09-05,CRReligIdv,Créd. Prazo Viol. de religação por suspensão indevida do fornec. (art. 176)
+2026-09-05,CRRelNorRr,Créd. Prazo Viol. de religação em área rural (art. 176)
+2026-09-05,CRRelNorUb,Créd. Prazo Viol. de religação em área urbana (art. 176)
+2026-09-05,CRRelUrgRr,Créd. Prazo Viol. de religação de emergência em área rural (art. 176)
+2026-09-05,CRRelUrgUb,Créd. Prazo Viol. de religação de emergência em área urbana (art. 176)
+2026-09-05,CRResulRsc,Créd. Prazo Viol. de resultado da solicitação de ressarcimento (art. 207)
+2026-09-05,CRSubstMed,Créditos cedidos por substituição do medidor com defeito (art. 115)
+2026-09-05,CRVistRr,Créd. Prazo Viol. por vistoria de unidade consumidora de área rural (art. 30)
+2026-09-05,CRVistUb,Créd. Prazo Viol. por vistoria de unidade consumidora de área urbana (art. 30)
+2026-09-05,CRVrfResfr,Créd. Prazo Viol. de verif. de equip. de resfriamento por ressarc. (art. 206)
+2026-09-05,CRVrfRsc,Créd. Prazo Viol. de verif. de equip. por ressarc. de dano elétrico (art. 206)
+2026-09-05,DEC,Duração Equivalente de Interrupção por Unidade Consumidora - 3 Min.
+2026-09-05,Dec1,Duração Equivalente de Interrupção por Unidade Consumidora - 1 Min.
+2026-09-05,DEC1i,Duração Equivalente de Interrupção por Unid. Cons. Decor.Rede Própria - 1 Min
+2026-09-05,Dec1r,Duração Equivalente de Interrupção por Unidade Consumidora (Racion.)- 1 Min.
+2026-09-05,DEC1x,Duração Equivalente de Interrupção por Unid. Cons. Fat. Externos - 1 Min.
+2026-09-05,DECi,Duração Equivalente de Interrupção por Unid. Cons. Decor. Rede Própia - 3 Min.
+2026-09-05,DECINC,DEC de interrup. origem interna ao Sist. de Dist. não progr. e ocor. Dia Crítico
+2026-09-05,DECIND,"DEC interrup origem interna, não programada e não expurgavel"
+2026-09-05,DECINE,"DEC interrup. origem interna, não progr. e ocor. Sit. Emerg, n ocor critico."
+2026-09-05,DECINO,"DEC interrup. origem interna não progr. Racionamento e ONS, n ocor dia critico."
+2026-09-05,DECIP,DEC de interrupção de origem interna ao Sist. de Dist. e programada
+2026-09-05,DECIPC,"DEC interrup. origem inter. ao sist distr, prog. e ocorr. em dia crítico"
+2026-09-05,Decr,Duração Equivalente de Interrupção por Unidade Consumidora (Racion.)- 3 Min.
+2026-09-05,DECx,Duração Equivalente de Interrupção por Unid. Cons. Decor. Fat. Externos - 3 Min.
+2026-09-05,DECXN,DEC de interrupção de origem externa ao Sist. de Dist. e não programada
+2026-09-05,DECXNC,"DEC interrup. origem ext. ao sist distr, não prog. e ocorr. em dia crítico"
+2026-09-05,DECXP,DEC de interrupção de origem externa ao Sist. de Dist. e programada
+2026-09-05,DECXPC,"DEC interrup. origem ext. ao sist distr, prog. e ocorr. em dia crítico"
+2026-09-05,DIADEBPDO,Dias Debitados - Próprio Doença
+2026-09-05,DIADEBPTJ,Dias Debitados - Próprio Trajeto
+2026-09-05,DIADEBPTP,Dias Debitados - Próprio Típico
+2026-09-05,DIADEBTTP,Dias Debitados - Terceirizado Típico
+2026-09-05,DIAPRDPDO,Dias Perdidos - Próprio Doença
+2026-09-05,DIAPRDPTJ,Dias Perdidos - Próprio Trajeto
+2026-09-05,DIAPRDPTP,Dias Perdidos - Próprio Típico
+2026-09-05,DIAPRDTTP,Dias Perdidos - Terceirizado Típico
+2026-09-05,DICVLD,Valor apurado do indicador DIC
+2026-09-05,DICVLDA,Valor apurado do indicador DIC
+2026-09-05,DICVLDT,Valor apurado do indicador DIC
+2026-09-05,DMICVLD,Valor apurado do indicador DMIC
+2026-09-05,DMICVLDA,Valor apurado do indicador DMIC violado
+2026-09-05,DMICVLDT,Valor apurado do indicador DMIC violado
+2026-09-05,DRC,Duração Relativa da Transgressão Máxima de Tensão Crítica Mensal
+2026-09-05,DRCt,Duração Relativa da Transgressão Máxima de Tensão Crítica
+2026-09-05,DRCVLD,Valor apurado do indicador DRC violado
+2026-09-05,DRP,Duração Relativa da Transgressão Máxima de Tensão Precária Mensal
+2026-09-05,DRPt,Duração Relativa da Transgressão Máxima de Tensão Precária
+2026-09-05,DRPVLD,Valor apurado do indicador DRP violado
+2026-09-05,ERP,"Extensão de rede primária com nível de tensão inferior a 69kV, em km"
+2026-09-05,ERPT,Extensão de Rede Primária em km
+2026-09-05,ERPTRU,"Ext de rede de MT que atendem a área rur, redes próp e redes particulares"
+2026-09-05,ERPTUR,"Ext de rede de MT que atendem a área urb, redes próp e redes particulares"
+2026-09-05,FEC,Freqüência Equivalente de Interrupção por Unidade Consumidora - 3 Min.
+2026-09-05,Fec1,Freqüencia Equivalente de Interrupção por Unidade Consumidora - 1 Min.
+2026-09-05,FEC1i,Freqüência Equivalente de Interrupção por Unid. Cons. Decor.Rede Própria - 1 Min
+2026-09-05,Fec1r,Freqüência Equivalente de Interrupção por Unidade Consumidora (Racion.)- 1 Min.
+2026-09-05,FEC1x,Freqüência Equivalente de Interrupção por Unid. Cons. Fat. Externos - 1 Min
+2026-09-05,FECi,Freqüência Equivalente de Interrupção por Unid. Cons. Decor.Rede Própria - 3 Min
+2026-09-05,FECINC,FEC de interrup. origem interna ao Sist. de Dist. não progr. e ocor. Dia Crítico
+2026-09-05,FECIND,"FEC interrup origem interna, não programada e não expurgavel"
+2026-09-05,FECINE,"FEC interrup. origem interna, não progr. e ocor. Sit. Emerg, n ocor critico."
+2026-09-05,FECINO,"FEC interrup. origem interna não progr. Racionamento e ONS, n ocor dia critico."
+2026-09-05,FECIP,FEC de interrupção de origem interna ao Sist. de Dist. e programada
+2026-09-05,FECIPC,"FEC interrup. origem inter. ao sist distr, prog. e ocorr. em dia crítico"
+2026-09-05,Fecr,Freqüência Equivalente de Interrupção por Unidade Consumidora (Racion.)- 3 Min.
+2026-09-05,FECx,Freqüência Equivalente de Interrupção por Unid. Cons. Decor.Fat.Externos - 3 Min
+2026-09-05,FECXN,FEC de interrupção de origem externa ao Sist. de Dist. e não programada
+2026-09-05,FECXNC,"FEC interrup. origem ext. ao sist distr, não prog. e ocorr. em dia crítico"
+2026-09-05,FECXP,FEC de interrupção de origem externa ao Sist. de Dist. e programada
+2026-09-05,FECXPC,"FEC interrup. origem ext. ao sist distr, prog. e ocorr. em dia crítico"
+2026-09-05,FICVLD,Valor apurado do indicador FIC
+2026-09-05,FICVLDA,Valor apurado do indicador FIC
+2026-09-05,FICVLDT,Valor apurado do indicador FIC
+2026-09-05,FQACCAPDO,Taxa de frequência de acidentados com lesão com afastamento - Próprio
+2026-09-05,FQACCAPTP,Taxa de frequência de acidentados com lesão com afastamento - Próprio
+2026-09-05,FQACCATTP,Taxa de frequência de acidentados com lesão com afastamento - Terceiri
+2026-09-05,FQACPDO,Taxa de frequencia de acidentes do trabalho - Próprio Doença
+2026-09-05,FQACPTP,Taxa de frequencia de acidentes do trabalho - Próprio Típico
+2026-09-05,FQACSAPDO,Taxa de frequência de acidentados com lesão sem afastamento - Próprio
+2026-09-05,FQACSAPTP,Taxa de frequência de acidentados com lesão sem afastamento - Próprio
+2026-09-05,FQACSATTP,Taxa de frequência de acidentados com lesão sem afastamento - Terceiri
+2026-09-05,FQACTTP,Taxa de frequencia de acidentes do trabalho - Terceirizado Típico
+2026-09-05,GRVACPDO,Taxa de gravidade de acidentes do trabalho - Próprio Doença
+2026-09-05,GRVACPTP,Taxa de gravidade de acidentes do trabalho - Próprio Típico
+2026-09-05,GRVACTTP,Taxa de gravidade de acidentes do trabalho - Terceirizado Típico
+2026-09-05,HHRISACP,Horas-Homem de exposição ao risco de acidentes - Próprio
+2026-09-05,HHRISACT,Horas-Homem de exposição ao risco de acidentes - Terceirizado
+2026-09-05,ICC,Índices de Unidades Consumidoras com Tensão Crítica
+2026-09-05,ICom1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Comercial
+2026-09-05,ICom12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Comercial
+2026-09-05,ICom18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Comercial
+2026-09-05,ICom21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Comercial
+2026-09-05,ICom24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Comercial
+2026-09-05,ICom3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Comercial
+2026-09-05,ICom6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Comercial
+2026-09-05,IComCrt,Quant. de unid. da classe Comercial susp. inadimplência no mês de ref.
+2026-09-05,ICProp1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Consumo Próp.
+2026-09-05,ICProp12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Consumo Próp.
+2026-09-05,ICProp18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Consumo Próp.
+2026-09-05,ICProp21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Consumo Próp.
+2026-09-05,ICProp24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Consumo Próp.
+2026-09-05,ICProp3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Consumo Próp.
+2026-09-05,ICProp6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Consumo Próp.
+2026-09-05,ICPropCrt,Quant. de unid. da classe Consumo Próp. susp. inadimplência no mês de ref.
+2026-09-05,IInd1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Industrial
+2026-09-05,IInd12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Industrial
+2026-09-05,IInd18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Industrial
+2026-09-05,IInd21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Industrial
+2026-09-05,IInd24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Industrial
+2026-09-05,IInd3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Industrial
+2026-09-05,IInd6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Industrial
+2026-09-05,IIndCrt,Quant. de unid. da classe Industrial susp. inadimplência no mês de ref.
+2026-09-05,IIPub1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Iluminação Púb.
+2026-09-05,IIPub12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Iluminação Púb.
+2026-09-05,IIPub18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Iluminação Púb.
+2026-09-05,IIPub21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Iluminação Púb.
+2026-09-05,IIPub24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Iluminação Púb.
+2026-09-05,IIPub3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Iluminação Púb.
+2026-09-05,IIPub6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Iluminação Púb.
+2026-09-05,IIPubCrt,Quant. de unid. da classe Iluminação Púb. susp. inadimplência no mês de ref.
+2026-09-05,IPPub1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Poder Púb.
+2026-09-05,IPPub12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Poder Púb.
+2026-09-05,IPPub18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Poder Púb.
+2026-09-05,IPPub21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Poder Púb.
+2026-09-05,IPPub24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Poder Púb.
+2026-09-05,IPPub3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Poder Púb.
+2026-09-05,IPPub6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Poder Púb.
+2026-09-05,IPPubCrt,Quant. de unid. da classe Poder Púb. susp. inadimplência no mês de ref.
+2026-09-05,IResBR1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Resid. Baixa R.
+2026-09-05,IResBR12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Resid. Baixa R.
+2026-09-05,IResBR18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Resid. Baixa R.
+2026-09-05,IResBR21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Resid. Baixa R.
+2026-09-05,IResBR24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Resid. Baixa R.
+2026-09-05,IResBR3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Resid. Baixa R.
+2026-09-05,IResBR6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Resid. Baixa R.
+2026-09-05,IResBRCrt,Quant. de unid. da classe Resid. Baixa R. susp. inadimplência no mês de ref.
+2026-09-05,IResTot1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Resid. Total
+2026-09-05,IRestot12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Resid. Total
+2026-09-05,IRestot18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Resid. Total
+2026-09-05,IRestot21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Resid. Total
+2026-09-05,IRestot24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Resid. Total
+2026-09-05,IRestot3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Resid. Total
+2026-09-05,IRestot6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Resid. Total
+2026-09-05,IResTotCrt,Quant. de unid. da classe Resid. Total susp. inadimplência no mês de ref.
+2026-09-05,IRur1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Rural
+2026-09-05,IRur12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Rural
+2026-09-05,IRur18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Rural
+2026-09-05,IRur21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Rural
+2026-09-05,IRur24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Rural
+2026-09-05,IRur3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Rural
+2026-09-05,IRur6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Rural
+2026-09-05,IRurCrt,Quant. de unid. da classe Rural susp. inadimplência no mês de ref.
+2026-09-05,ISerPub1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. classe Serviço Púb.
+2026-09-05,ISerPub12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. classe Serviço Púb.
+2026-09-05,ISerPub18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. classe Serviço Púb.
+2026-09-05,ISerPub21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. classe Serviço Púb.
+2026-09-05,ISerPub24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. classe Serviço Púb.
+2026-09-05,ISerPub3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. classe Serviço Púb.
+2026-09-05,ISerPub6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. classe Serviço Púb.
+2026-09-05,ISerPubCrt,Quant. de unid. da classe Serviço Púb. susp. inadimplência no mês de ref.
+2026-09-05,ITot1,Perc. da rec. fat. 1° mês ant. não receb. no mês de ref. todos os consumidores
+2026-09-05,ITot12,Perc. da rec. fat. 12° mês ant. não receb. no mês de ref. todos os consumidores
+2026-09-05,ITot18,Perc. da rec. fat. 18° mês ant. não receb. no mês de ref. todos os consumidores
+2026-09-05,ITot21,Perc. da rec. fat. 21° mês ant. não receb. no mês de ref. todos os consumidores
+2026-09-05,ITot24,Perc. da rec. fat. 24° mês ant. não receb. no mês de ref. todos os consumidores
+2026-09-05,ITot3,Perc. da rec. fat. 3° mês ant. não receb. no mês de ref. todos os consumidores
+2026-09-05,ITot6,Perc. da rec. fat. 6° mês ant. não receb. no mês de ref. todos os consumidores
+2026-09-05,ITotCrt,Quant. total de unid. consumidoras susp. inadimplência no mês de referência
+2026-09-05,k3,Valor do encargo de uso do sistema de distribuição
+2026-09-05,LOCUC,Localização da Unidade Consumidora
+2026-09-05,LOCUCA,Localização da Unidade Consumidora
+2026-09-05,LOCUCT,Localização da Unidade Consumidora
+2026-09-05,NACCAPDO,Número de acidentados com lesão e com afastamento - Próprio Doença
+2026-09-05,NACCAPTJ,Número de acidentados com lesão e com afastamento - Próprio Trajeto
+2026-09-05,NACCAPTP,Número de acidentados com lesão e com afastamento - Próprio Típico
+2026-09-05,NACCATDO,Número de acidentados com lesão e com afastamento - Terceirizado Doença
+2026-09-05,NACCATTJ,Número de acidentados com lesão e com afastamento - Terceirizado Trajet
+2026-09-05,NACCATTP,Número de acidentados com lesão e com afastamento - Terceirizado Típico
+2026-09-05,NACPDO,Número de acidentes do trabalho - Próprio Doença
+2026-09-05,NACPTJ,Número de acidentes do trabalho - Próprio Trajeto
+2026-09-05,NACPTP,Número de acidentes do trabalho - Próprio Típico
+2026-09-05,NACSAPDO,Número de acidentados com lesão e sem afastamento - Próprio Doença
+2026-09-05,NACSAPTJ,Número de acidentados com lesão e sem afastamento - Próprio Trajeto
+2026-09-05,NACSAPTP,Número de acidentados com lesão e sem afastamento - Próprio Típico
+2026-09-05,NACSATDO,Número de acidentados com lesão e sem afastamento - Terceirizado Doença
+2026-09-05,NACSATTJ,Número de acidentados com lesão e sem afastamento - Terceirizado Trajet
+2026-09-05,NACSATTP,Número de acidentados com lesão e sem afastamento - Terceirizado Típico
+2026-09-05,NACTDO,Número de acidentes do trabalho - Terceirizado Doença
+2026-09-05,NACTER,Número de acidentes com terceiros envolvendo a rede elétrica e demais instalaçõe
+2026-09-05,NACTERANT,Nº acid terc rede e demais instal - Antena de TV;
+2026-09-05,NACTERCFE,Nº acid terc rede e demais instal - Cabo energizado no solo ou falha de equip
+2026-09-05,NACTERCHO,Nº acid terc rede e demais instal - Choque elétrico por contato;
+2026-09-05,NACTERCLN,Nº acid terc rede e demais instal - Ligações clandestinas;
+2026-09-05,NACTERCMP,Nº acid terc rede e demais instal - Construção e manutenção predial;
+2026-09-05,NACTERFUR,Nº acid terc rede e demais instal - Furto de cabos e/ou outros equipamentos;
+2026-09-05,NACTERGUI,Nº acid terc rede e demais instal - Operação de guindaste
+2026-09-05,NACTEROUT,Nº acid terc rede e demais instal - Outros.
+2026-09-05,NACTERPIP,Nº acid terc rede e demais instal - Pipa;
+2026-09-05,NACTERPOD,Nº acid terc rede e demais instal - Poda de árvore;
+2026-09-05,NACTERPST,Nº acid terc rede e demais instal - Abalroamento de poste e/ou demais instal.
+2026-09-05,NACTERTVC,Nº acid terc rede e demais instal - Serviços de TV a cabo e telefonia;
+2026-09-05,NACTTJ,Número de acidentes do trabalho - Terceirizado Trajeto
+2026-09-05,NACTTP,Número de acidentes do trabalho - Terceirizado Típico
+2026-09-05,NDIACRI,Número de dias críticos verificados no ano
+2026-09-05,NEMPRP,Números de Empregados - Próprio
+2026-09-05,NEMPRT,Números de Empregados - Terceirizado
+2026-09-05,Nie,Número de Ocorreências Emergenciais com Interrupções
+2026-09-05,NMOFUPR,Número de mortes de decorrentes de acidentes do trabalho (funcionários próprios)
+2026-09-05,NMOFUTE,Número de mortes decorrentes de acidentes do trabalho (funcionários terceirizado
+2026-09-05,NMOPDO,Número de mortes de decorrentes de acidentes do trabalho - Próprio Doença
+2026-09-05,NMOPTJ,Número de mortes de decorrentes de acidentes do trabalho - Próprio Trajet
+2026-09-05,NMOPTP,Número de mortes de decorrentes de acidentes do trabalho - Próprio Típico
+2026-09-05,NMOTDO,Número de mortes de decorrentes de acidentes do trabalho - Terceirizado Doença
+2026-09-05,NMOTER,Número de mortes decorrentes de acidentes com terceiros envolvendo a rede elétri
+2026-09-05,NMOTERANT,Nº mortes terc rede e demais instal - Antena de TV;
+2026-09-05,NMOTERCFE,Nº mortes terc rede e demais instal - Cabo energizado no solo ou falha de equip
+2026-09-05,NMOTERCHO,Nº mortes terc rede e demais instal - Choque elétrico por contato;
+2026-09-05,NMOTERCLN,Nº mortes terc rede e demais instal - Ligações clandestinas;
+2026-09-05,NMOTERCMP,Nº mortes terc rede e demais instal - Construção e manutenção predial;
+2026-09-05,NMOTERFUR,Nº mortes terc rede e demais instal - Furto de cabos e/ou outros equip
+2026-09-05,NMOTERGUI,Nº mortes terc rede e demais instal - Operação de guindaste
+2026-09-05,NMOTEROUT,Nº mortes terc rede e demais instal - Outros.
+2026-09-05,NMOTERPIP,Nº mortes terc rede e demais instal - Pipa;
+2026-09-05,NMOTERPOD,Nº mortes terc rede e demais instal - Poda de árvore;
+2026-09-05,NMOTERPST,Nº mortes terc rede e demais instal - Abalroamento de poste e/ou demais inst
+2026-09-05,NMOTERTVC,Nº mortes terc rede e demais instal - Serviços de TV a cabo e telef
+2026-09-05,NMOTTJ,Número de mortes de decorrentes de acidentes do trabalho - Terceirizado Trajeto
+2026-09-05,NMOTTP,Número de mortes de decorrentes de acidentes do trabalho - Terceirizado Típico
+2026-09-05,NUCTCO,Total de unidades consumidoras comercial MT e BT
+2026-09-05,NUCTIN,Total de unidades consumidoras industrial MT e BT
+2026-09-05,NUCTOU,Total de unidades consumidoras de outras classes  MT e BT
+2026-09-05,NUCTRE,Total de unidades consumidoras residencial MT e BT
+2026-09-05,NUCTRU,Total de unidades consumidoras rural MT e BT
+2026-09-05,NumCon,Número de Consumidores do Conjunto no Período
+2026-09-05,NumConsAgt,Número de Consumidores do Distribuidor no Período
+2026-09-05,NumOcorr,Número de Ocorrencias Emergenciais no Conjunto no Período
+2026-09-05,PGUCAT,Valor pago a UCs AT por violacao dos limites de continuidade no mes
+2026-09-05,PGUCATA,Valor pago a UCs AT por violacao dos limites de cont no ano
+2026-09-05,PGUCATDC,Valor pago as UCs AT por violacao dos limites de DICRI
+2026-09-05,PGUCATT,Valor pago a UCs AT por violacao dos limites de cont no trimestre
+2026-09-05,PGUCBTNU,Valor pago a UCs BT não urbanas por violacao dos limites de cont no mes
+2026-09-05,PGUCBTNUA,Valor pago a UCs BT não urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUCBTNUDC,Valor pago as UCs BT não urbanas por violacao dos limites de DICRI
+2026-09-05,PGUCBTNUDS,Valor pago as UCs BT não urbanas por violacao dos limites de DISE
+2026-09-05,PGUCBTNUT,Valor pago a UCs BT não urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PGUCBTU,Valor pago a UCs BT urbanas por violacao dos limites de continuidade no mes
+2026-09-05,PGUCBTUA,Valor pago a UCs BT urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUCBTUDC,Valor pago as UCs BT urbanas por violacao dos limites de DICRI
+2026-09-05,PGUCBTUDS,Valor pago as UCs BT urbanas por violacao dos limites de DISE
+2026-09-05,PGUCBTUT,Valor pago a UCs BT urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PGUCMTNU,Valor pago a UCs MT não urbanas por violacao dos limites de cont no mes
+2026-09-05,PGUCMTNUA,Valor pago a UCs MT não urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUCMTNUDC,Valor pago as UCs MT não urbanas por violacao dos limites de DICRI
+2026-09-05,PGUCMTNUDS,Valor pago as UCs MT não urbanas por violacao dos limites de DISE
+2026-09-05,PGUCMTNUT,Valor pago a UCs MT não urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PGUCMTU,Valor pago a UCs MT urbanas por violacao dos limites de continuidade no mes
+2026-09-05,PGUCMTUA,Valor pago a UCs MT urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUCMTUDC,Valor pago as UCs MT urbanas por violacao dos limites de DICRI
+2026-09-05,PGUCMTUDS,Valor pago as UCs MT urbanas por violacao dos limites de DISE
+2026-09-05,PGUCMTUT,Valor pago a UCs MT urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PGUCTRP,Valor pago a UCs por violacao dos limites de tensao em regime permanente
+2026-09-05,PGUCTRPA,Valor pago a UCs por violação limites de tensão em regime perm–med.amostral
+2026-09-05,PGUCTRPE,Valor pago a UCs por violação limites de tensão em regime perm–med.eventual
+2026-09-05,PGUCTRPP,Valor pago a UCs por violação limites de tensão em regime perm–med.amostral
+2026-09-05,PGUGAT,Valor pago a UGs AT por violacao dos limites de continuidade no mes
+2026-09-05,PGUGATA,Valor pago a UGs AT por violacao dos limites de cont no ano
+2026-09-05,PGUGATDC,Valor pago as UGs AT por violacao dos limites de DICRI
+2026-09-05,PGUGATT,Valor pago a UGs AT por violacao dos limites de cont no trimestre
+2026-09-05,PGUGBTNU,Valor pago a UGs BT não urbanas por violacao dos limites de cont no mes
+2026-09-05,PGUGBTNUA,Valor pago a UGs BT não urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUGBTNUDC,Valor pago as UGs BT não urbanas por violacao dos limites de DICRI
+2026-09-05,PGUGBTNUDS,Valor pago as UGs BT não urbanas por violacao dos limites de DISE
+2026-09-05,PGUGBTNUT,Valor pago a UGs BT não urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PGUGBTU,Valor pago a UGs BT urbanas por violacao dos limites de continuidade no mes
+2026-09-05,PGUGBTUA,Valor pago a UGs BT urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUGBTUDC,Valor pago as UGs BT urbanas por violacao dos limites de DICRI
+2026-09-05,PGUGBTUDS,Valor pago as UGs BT urbanas por violacao dos limites de DISE
+2026-09-05,PGUGBTUT,Valor pago a UGs BT urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PGUGMTNU,Valor pago a UGs MT não urbanas por violacao dos limites de cont no mes
+2026-09-05,PGUGMTNUA,Valor pago a UGs MT não urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUGMTNUDC,Valor pago as UGs MT não urbanas por violacao dos limites de DICRI
+2026-09-05,PGUGMTNUDS,Valor pago as UGs MT não urbanas por violacao dos limites de DISE
+2026-09-05,PGUGMTNUT,Valor pago a UGs MT não urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PGUGMTU,Valor pago a UGs MT urbanas por violacao dos limites de continuidade no mes
+2026-09-05,PGUGMTUA,Valor pago a UGs MT urbanas por violacao dos limites de cont no ano
+2026-09-05,PGUGMTUDC,Valor pago as UGs MT urbanas por violacao dos limites de DICRI
+2026-09-05,PGUGMTUDS,Valor pago as UGs MT urbanas por violacao dos limites de DISE
+2026-09-05,PGUGMTUT,Valor pago a UGs MT urbanas por violacao dos limites de cont no trimestre
+2026-09-05,PMAfedMed,Prazo Médio de solicitações de aferição dos medidores (art. 137)
+2026-09-05,PMAnProj,Prazo Médio de informação do resultado da análise do projeto (art. 27-B)
+2026-09-05,PMCmsnObra,Prazo médio de Comissionamento das obras. (art. 37)
+2026-09-05,PMEstProj,"Prazo Médio de estudos, orçamentos e projetos por obras (art. 32)"
+2026-09-05,PMInform,Prazo Médio de informação da relação dos atendimentos (art. 199)
+2026-09-05,PMLigA,Prazo Médio de ligação de unidade consumidora do grupo A (art. 31)
+2026-09-05,PMLigBRr,Prazo Médio de ligação de consumidor do grupo B em área rural (art. 31)
+2026-09-05,PMLigBUb,Prazo Médio de ligação de consumidor do grupo B em área urbana (art. 31)
+2026-09-05,PMNvCmsn,Prazo médio de Novo comissionamento quando de reprovação. (art. 37)
+2026-09-05,PMObGerais,Prazo médio de Conclusão de obra não abrang. nos inc. I e II do art. 34.
+2026-09-05,PMObra,Prazo Médio de Início das Obras (art. 34)
+2026-09-05,PMObraPrim,Prazo médio de Conclusão das obras de até 1 km na rede  prim. (art. 34)
+2026-09-05,PMObraSec,Prazo médio de Conclusão das obras na rede tensão sec. (art. 34)
+2026-09-05,PMPgtoRsc,"Prazo Médio de ressarc. por meio do pgto, conserto ou subst. (art. 208)"
+2026-09-05,PMRclCobr,Prazo Médio de reclamação de cobrança ou devol. de diferenças (art. 133)
+2026-09-05,PMRclDano,Prazo Médio de solução ref. à danos não elétricos reclamados (art. 197)
+2026-09-05,PMRclVisTc,Prazo Médio de solução de reclamação com visita técnica (art. 197)
+2026-09-05,PMReanProj,Prazo Médio de reanálise do projeto por falta de informação (art. 27-B)
+2026-09-05,PMReligIdv,Prazo Médio de religação por suspensão indevida do fornec. (art. 176)
+2026-09-05,PMRelNorRr,Prazo Médio de religação em área rural (art. 176)
+2026-09-05,PMRelNorUb,Prazo Médio de religação em área urbana (art. 176)
+2026-09-05,PMRelUrgRr,Prazo Médio de religação de emergência em área rural (art. 176)
+2026-09-05,PMRelUrgUb,Prazo Médio de religação de emergência em área urbana (art. 176)
+2026-09-05,PMResulRsc,Prazo Médio de resultado da solicitação de ressarcimento (art. 207)
+2026-09-05,PMSubstMed,Prazo Médio de substituição do medidor com defeito (art. 115)
+2026-09-05,PMVistRr,Prazo Médio de vistoria de unidade consumidora de área rural (art. 30)
+2026-09-05,PMVistUb,Prazo médio de vistoria de unidade consumidora de área urbana (art. 30)
+2026-09-05,PMVrfResfr,Prazo Médio de verif. de equip. de resfriamento por ressarc. (art. 206)
+2026-09-05,PMVrfRsc,Prazo Médio de verif. de equip. por ressarc. de dano elétrico (art. 206)
+2026-09-05,Pnie,Percentual do Número de Ocorreências Emergenciais com Interrupções
+2026-09-05,PNIT,"Potência instalada de transformadores de distribuição, em kVA, de todos os"
+2026-09-05,PNITT,Potencia Instalada de transformadores de distribuição em kVA
+2026-09-05,QSAfedMed,Quantidade de solicitações de aferição dos medidores (art. 137)
+2026-09-05,QSAnProj,Quantidade de informação do resultado da análise do projeto (art. 27-B)
+2026-09-05,QSCmsnObra,Quantidade de Comissionamento das obras. (art. 37)
+2026-09-05,QSEstProj,"Quantidade de estudos, orçamentos e projetos por obras (art. 32)"
+2026-09-05,QSInform,Quantidade de informação da relação dos atendimentos (art. 199)
+2026-09-05,QSLigA,Quantidade de ligação de unidade consumidora do grupo A (art. 31)
+2026-09-05,QSLigBRr,Quantidade de ligação de consumidor do grupo B em área rural (art. 31)
+2026-09-05,QSLigBUb,Quantidade de ligação de consumidor do grupo B em área urbana (art. 31)
+2026-09-05,QSNvCmsn,Quantidade de Novo comissionamento quando de reprovação. (art. 37)
+2026-09-05,QSObGerais,Quantidade de Conclusão de obra não abrang. nos inc. I e II do art. 34.
+2026-09-05,QSObra,Quantidade de Início das Obras (art. 34)
+2026-09-05,QSObraPrim,Quantidade de Conclusão das obras de até 1 km na rede prim. (art. 34)
+2026-09-05,QSObraSec,Quantidade de Conclusão das obras na rede tensão sec. (art. 34)
+2026-09-05,QSPgtoRsc,"Quantidade de ressarc. por meio do pgto, conserto ou subst. (art. 208)"
+2026-09-05,QSRclCobr,Quantidade de reclamação de cobrança ou devol. de diferenças (art. 133)
+2026-09-05,QSRclDano,Quantidade de solução ref. à danos não elétricos reclamados (art. 197)
+2026-09-05,QSRclVisTc,Quantidade de solução de reclamação com visita técnica (art. 197)
+2026-09-05,QSReanProj,Quantidade de reanálise do projeto por falta de informação (art. 27-B)
+2026-09-05,QSReligIdv,Quantidade de religação por suspensão indevida do fornec. (art. 176)
+2026-09-05,QSRelNorRr,Quantidade de religação em área rural (art. 176)
+2026-09-05,QSRelNorUb,Quantidade de religação em área urbana (art. 176)
+2026-09-05,QSRelUrgRr,Quantidade de religação de emergência em área rural (art. 176)
+2026-09-05,QSRelUrgUb,Quantidade de religação de emergência em área urbana (art. 176)
+2026-09-05,QSResulRsc,Quantidade de resultado da solicitação de ressarcimento (art. 207)
+2026-09-05,QSSubstMed,Quantidade de substituição do medidor com defeito (art. 115)
+2026-09-05,QSVistRr,Quantidade de vistoria de unidade consumidora de área rural (art. 30)
+2026-09-05,QSVistUb,Quantidade de vistoria de unidade consumidora de área urbana (art. 30)
+2026-09-05,QSVrfResfr,Quantidade de verif. de equip. de resfriamento por ressarc. (art. 206)
+2026-09-05,QSVrfRsc,Quantidade de verif. de equip. por ressarc. de dano elétrico (art. 206)
+2026-09-05,QTUCAT,Qtde de UCs AT compensadas por violacao dos limites de continuidade no mes
+2026-09-05,QTUCATA,Qtde de UCs AT compens por violacao dos limites de cont no ano
+2026-09-05,QTUCATDC,Qtde de UCs AT comp por violacao dos limites de DICRI
+2026-09-05,QTUCATT,Qtde de UCs AT compens por violacao dos limites de cont no trimestre
+2026-09-05,QTUCBTNU,Qtde de UCs BT não urbanas comp por violacao dos limites de cont no mes
+2026-09-05,QTUCBTNUA,Qtde de UCs BT não urbanas comp por violacao dos limites de cont no ano
+2026-09-05,QTUCBTNUDC,Qtde de UCs BT não urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUCBTNUDS,Qtde de UCs BT não urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUCBTNUT,Qtde de UCs BT não urbanas comp por violacao dos limites de cont no trimestre
+2026-09-05,QTUCBTU,Qtde de UCs BT urbanas compensadas por violacao dos limites de cont no mes
+2026-09-05,QTUCBTUA,Qtde de UCs BT urbanas compens por violacao dos limites de cont no ano
+2026-09-05,QTUCBTUDC,Qtde de UCs BT urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUCBTUDS,Qtde de UCs BT urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUCBTUT,Qtde de UCs BT urbanas compens por violacao dos limites de cont no trimestre
+2026-09-05,QTUCMTNU,Qtde de UCs MT não urbanas comp por violacao dos limites de cont no mes
+2026-09-05,QTUCMTNUA,Qtde de UCs MT não urbanas comp por violacao dos limites de cont no ano
+2026-09-05,QTUCMTNUDC,Qtde de UCs MT não urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUCMTNUDS,Qtde de UCs MT não urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUCMTNUT,Qtde de UCs MT não urbanas comp por violacao dos limites de cont no trimestre
+2026-09-05,QTUCMTU,Qtde de UCs MT urbanas compensadas por violacao dos limites de cont no mes
+2026-09-05,QTUCMTUA,Qtde de UCs MT urbanas compens por violacao dos limites de cont no ano
+2026-09-05,QTUCMTUDC,Qtde de UCs MT urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUCMTUDS,Qtde de UCs MT urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUCMTUT,Qtde de UCs MT urbanas compens por violacao dos limites de cont no trimestre
+2026-09-05,QTUCTRP,Qtde de UCs comp por violacao dos limites de tensao em regime permanente
+2026-09-05,QTUCTRPA,Qtde de UC compens.-violação limites de tensão em regime perm–med.amostral
+2026-09-05,QTUCTRPE,Qtde de UC compens.-violação limites de tensão em regime perm–med.eventual
+2026-09-05,QTUCTRPP,Qtde de UC compens.-violação limites de tensão em regime perm–med.perman.
+2026-09-05,QTUGAT,Qtde de UGs AT compensadas por violacao dos limites de continuidade no mes
+2026-09-05,QTUGATA,Qtde de UGs AT compens por violacao dos limites de cont no ano
+2026-09-05,QTUGATDC,Qtde de UGs AT comp por violacao dos limites de DICRI
+2026-09-05,QTUGATT,Qtde de UGs AT compens por violacao dos limites de cont no trimestre
+2026-09-05,QTUGBTNU,Qtde de UGs BT não urbanas comp por violacao dos limites de cont no mes
+2026-09-05,QTUGBTNUA,Qtde de UGs BT não urbanas comp por violacao dos limites de cont no ano
+2026-09-05,QTUGBTNUDC,Qtde de UGs BT não urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUGBTNUDS,Qtde de UGs BT não urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUGBTNUT,Qtde de UGs BT não urbanas comp por violacao dos limites de cont no trimestre
+2026-09-05,QTUGBTU,Qtde de UGs BT urbanas compensadas por violacao dos limites de cont no mes
+2026-09-05,QTUGBTUA,Qtde de UGs BT urbanas compens por violacao dos limites de cont no ano
+2026-09-05,QTUGBTUDC,Qtde de UGs BT urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUGBTUDS,Qtde de UGs BT urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUGBTUT,Qtde de UGs BT urbanas compens por violacao dos limites de cont no trimestre
+2026-09-05,QTUGMTNU,Qtde de UGs MT não urbanas comp por violacao dos limites de cont no mes
+2026-09-05,QTUGMTNUA,Qtde de UGs MT não urbanas comp por violacao dos limites de cont no ano
+2026-09-05,QTUGMTNUDC,Qtde de UGs MT não urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUGMTNUDS,Qtde de UGs MT não urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUGMTNUT,Qtde de UGs MT não urbanas comp por violacao dos limites de cont no trimestre
+2026-09-05,QTUGMTU,Qtde de UGs MT urbanas compensadas por violacao dos limites de cont no mes
+2026-09-05,QTUGMTUA,Qtde de UGs MT urbanas compens por violacao dos limites de cont no ano
+2026-09-05,QTUGMTUDC,Qtde de UGs MT urbanas comp por violacao dos limites de DICRI
+2026-09-05,QTUGMTUDS,Qtde de UGs MT urbanas comp por violacao dos limites de DISE
+2026-09-05,QTUGMTUT,Qtde de UGs MT urbanas compens por violacao dos limites de cont no trimestre
+2026-09-05,QVAfedMed,Quant. Prazos Viol. de solicitações de aferição dos medidores (art. 137)
+2026-09-05,QVAnProj,Quant. Prazos Viol. de informação do resultado da análise do projeto (art. 27-B)
+2026-09-05,QVCmsnObra,Quant. Prazos Viol. de Comissionamento das obras. (art. 37)
+2026-09-05,QVEstProj,"Quant. Prazos Viol. de estudos, orçamentos e projetos por obras (art. 32)"
+2026-09-05,QVInform,Quant. Prazos Viol. de informação da relação dos atendimentos (art. 199)
+2026-09-05,QVLigA,Quant. Prazos Viol. de ligação de unidade consumidora do grupo A (art. 31)
+2026-09-05,QVLigBRr,Quant. Prazos Viol. de ligação de consumidor do grupo B em área rural (art. 31)
+2026-09-05,QVLigBUb,Quant. Prazos Viol. de ligação de consumidor do grupo B em área urbana (art. 31)
+2026-09-05,QVNvCmsn,Quant. Prazos Viol. de Novo comissionamento quando de reprovação. (art. 37)
+2026-09-05,QVObGerais,Quant. Prazos Viol. de Conclusão de obra não abrang. nos inc. I e II do art. 34.
+2026-09-05,QVObra,Quant. Prazos Viol. de Início das Obras (art. 34)
+2026-09-05,QVObraPrim,Quant. Prazos Viol. de Conclusão das obras de até 1 km na rede prim. (art. 34)
+2026-09-05,QVObraSec,Quant. Prazos Viol. de Conclusão das obras na rede tensão sec. (art. 34)
+2026-09-05,QVPgtoRsc,"Quant. Prazos Viol. de ressarc. por meio do pgto, conserto ou subst. (art. 208)"
+2026-09-05,QVRclCobr,Quant. Prazos Viol. de reclamação de cobrança ou devol. de diferenças (art. 133)
+2026-09-05,QVRclDano,Quant. Prazos Viol. de solução ref. à danos não elétricos reclamados (art. 197)
+2026-09-05,QVRclVisTc,Quant. Prazos Viol. de solução de reclamação com visita técnica (art. 197)
+2026-09-05,QVReanProj,Quant. Prazos Viol. de reanálise do projeto por falta de informação (art. 27-B)
+2026-09-05,QVReligIdv,Quant. Prazos Viol. de religação por suspensão indevida do fornec. (art. 176)
+2026-09-05,QVRelNorRr,Quant. Prazos Viol. de religação em área rural (art. 176)
+2026-09-05,QVRelNorUb,Quant. Prazos Viol. de religação em área urbana (art. 176)
+2026-09-05,QVRelUrgRr,Quant. Prazos Viol. de religação de emergência em área rural (art. 176)
+2026-09-05,QVRelUrgUb,Quant. Prazos Viol. de religação de emergência em área urbana (art. 176)
+2026-09-05,QVResulRsc,Quant. Prazos Viol. de resultado da solicitação de ressarcimento (art. 207)
+2026-09-05,QVSubstMed,Quant. Prazos Viol. de substituição do medidor com defeito (art. 115)
+2026-09-05,QVVistRr,Quant. Prazos Viol. vistoria de unidade consumidora de área rural (art. 30)
+2026-09-05,QVVistUb,Quant. Prazos Viol. de vistoria de unidade consumidora de área urbana (art. 30)
+2026-09-05,QVVrfResfr,Quant. Prazos Viol. de verif. de equip. de resfriamento por ressarc. (art. 206)
+2026-09-05,QVVrfRsc,Quant. Prazos Viol. de verif. de equip. por ressarc. de dano elétrico (art. 206)
+2026-09-05,TI1,Tensão Interna
+2026-09-05,TMD,Tempo Médio de Deslocamento
+2026-09-05,TME,Tempo Médio de Execução
+2026-09-05,TMM,Tempo Médio de Mobilização
+2026-09-05,TMP,Tempo Médio de Preparação
+2026-09-05,TNS,Tensão
+2026-09-05,TNSA,Tensão
+2026-09-05,TNST,Tensão
+2026-09-05,TSC,"Tipo de sistema do conjunto, 1: Sistema Interligado; 2:Sistema Isolado"
+2026-09-05,TSCT,"Tipo de sistema do conjunto. 1: Interligado, 2: Isolado"
+2026-09-05,TXFQAC,Taxa de frequencia de acidentes do trabalho
+2026-09-05,TXGRAC,Taxa de gravidade de acidentes do trabalho
+2026-09-05,VLCLACRI,Valor utilizado no ano para identificar se um dia pode ser classificado critico
