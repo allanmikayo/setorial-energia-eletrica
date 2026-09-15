@@ -6,8 +6,14 @@ name: Atualizar base ANEEL (DEC/FEC)
 on:
   workflow_dispatch:
     inputs:
+      fonte:
+        description: 'De onde ler: arquivo-fonte completo (tem o ano corrente) ou API'
+        type: choice
+        required: false
+        default: 'auto'
+        options: ['auto', 'arquivo', 'api']
       anos:
-        description: 'Anos a baixar (ex.: 2024,2025) ou "todos"'
+        description: 'Anos a baixar (ex.: 2024,2025) ou "todos" para tudo que a fonte tiver'
         required: false
         default: 'todos'
       indicadores:
@@ -45,9 +51,10 @@ jobs:
       - name: Instalar dependências
         run: pip install -r requirements.txt
 
-      - name: Baixar da API da ANEEL
+      - name: Baixar da ANEEL
         run: |
           python scripts/baixar_aneel.py \
+            --fonte "${{ inputs.fonte || 'auto' }}" \
             --anos "${{ inputs.anos || 'todos' }}" \
             --indicadores "${{ inputs.indicadores || 'DEC,FEC,NumCon' }}" \
             ${{ inputs.csv_plano && '--csv-plano' || '' }}

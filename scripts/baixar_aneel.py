@@ -9,11 +9,16 @@ Dataset "Indicadores Coletivos de Continuidade (DEC e FEC)":
   limites  : resource fd69e1dd-fd66-4269-b60c-cc0b7eb221b4
   dominio  : resource 17fc99b7-e707-4ec4-9553-a43d7a41f7a6
 
+Fonte padrao e o ARQUIVO-FONTE completo do portal, nao a API: o datastore da
+API nao carrega o arquivo inteiro e hoje para em 2025, enquanto o arquivo ja
+tem o ano corrente. A API fica como reserva automatica.
+
 Uso:
-    python scripts/baixar_aneel.py                      # DEC, FEC, NumCon, todos os anos
+    python scripts/baixar_aneel.py                      # arquivo completo, DEC/FEC/NumCon
     python scripts/baixar_aneel.py --anos 2024,2025
-    python scripts/baixar_aneel.py --indicadores DEC,FEC
-    python scripts/baixar_aneel.py --csv-plano          # CSV sem gzip (arquivos grandes)
+    python scripts/baixar_aneel.py --fonte api          # forca a API paginada
+    python scripts/baixar_aneel.py --indicadores todos
+    python scripts/baixar_aneel.py --csv-plano          # CSV sem gzip
 """
 
 from __future__ import annotations
@@ -22,7 +27,9 @@ import argparse
 import hashlib
 import json
 import os
+import shutil
 import sys
+import tempfile
 import time
 from typing import Any
 
@@ -30,9 +37,20 @@ import pandas as pd
 import requests
 
 BASE = "https://dadosabertos.aneel.gov.br/api/3/action/datastore_search"
+RESOURCE_SHOW = "https://dadosabertos.aneel.gov.br/api/3/action/resource_show"
+
+# Recursos do datastore (API paginada).
 RES_APURADOS = "4493985c-baea-429c-9df5-3030422c71d7"
 RES_LIMITES = "fd69e1dd-fd66-4269-b60c-cc0b7eb221b4"
 RES_DOMINIO = "17fc99b7-e707-4ec4-9553-a43d7a41f7a6"
+
+# Arquivos-fonte completos. O datastore da API NAO carrega o arquivo inteiro
+# (o proprio metadado do portal traz datastore_contains_all_records_of_source_file
+# = false para os apurados): hoje a API so devolve 2022-2025, enquanto o arquivo
+# vai de 2020 em diante e ja tem o ano corrente. Por isso a fonte padrao e o
+# arquivo, com a API como reserva.
+ARQ_APURADOS_PARQUET = "d7f70fb1-725c-4748-afeb-65c6a78df550"  # 2020-2029
+ARQ_APURADOS_ANTIGO = "1706a88f-ecd6-4de9-99ee-ec240c317378"   # 2010-2019
 
 PAGE = 10000
 TIMEOUT = 120
@@ -134,6 +152,145 @@ def anos_disponiveis() -> list[str]:
 
 
 # ----------------------------------------------------------------------------
+# Fonte "arquivo": baixa o arquivo-fonte completo do portal
+# ----------------------------------------------------------------------------
+COLS_APURADOS = {"SigAgente", "IdeConjUndConsumidoras", "SigIndicador",
+                 "AnoIndice", "NumPeriodoIndice", "VlrIndiceEnviado"}
+COLS_LIMITES = {"SigAgente", "IdeConjUndConsumidoras", "SigIndicador",
+                "AnoLimiteQualidade", "VlrLimite"}
+
+
+def meta_recurso(resource_id: str) -> dict:
+    """URL de download e data de modificacao de um recurso do portal."""
+    sess = nova_sessao()
+    for tentativa in range(1, TENTATIVAS + 1):
+        try:
+            r = sess.get(RESOURCE_SHOW, params={"id": resource_id}, timeout=TIMEOUT)
+            r.raise_for_status()
+            res = r.json()["result"]
+            return {"url": res["url"], "formato": (res.get("format") or "").upper(),
+                    "modificado_em": res.get("last_modified"),
+                    "bytes": res.get("size"), "nome": res.get("name")}
+        except Exception as e:
+            if tentativa == TENTATIVAS:
+                raise
+            espera = BACKOFF * (2 ** (tentativa - 1))
+            print(f"  [retry {tentativa}] resource_show: {type(e).__name__} — "
+                  f"{espera}s", flush=True)
+            time.sleep(espera)
+    raise RuntimeError("inalcancavel")
+
+
+def baixa_arquivo(url: str, destino: str) -> str:
+    """
+    Download em streaming, com retry. O portal derruba transferencia grande com
+    alguma frequencia, entao cada tentativa recomeca o arquivo do zero e o
+    tamanho e conferido contra o Content-Length antes de dar por bom.
+    """
+    erro = None
+    for tentativa in range(1, TENTATIVAS + 1):
+        try:
+            sess = nova_sessao()
+            with sess.get(url, stream=True, timeout=TIMEOUT) as r:
+                r.raise_for_status()
+                esperado = r.headers.get("Content-Length")
+                esperado = int(esperado) if esperado and esperado.isdigit() else None
+                baixado = 0
+                with open(destino, "wb") as fh:
+                    for bloco in r.iter_content(chunk_size=1 << 20):
+                        if bloco:
+                            fh.write(bloco)
+                            baixado += len(bloco)
+            if esperado and baixado != esperado:
+                raise IOError(f"download incompleto: {baixado} de {esperado} bytes")
+            print(f"  baixado: {baixado / 1e6:.1f} MB", flush=True)
+            return destino
+        except Exception as e:
+            erro = e
+            if os.path.exists(destino):
+                os.remove(destino)
+            if tentativa == TENTATIVAS:
+                break
+            espera = BACKOFF * (2 ** (tentativa - 1))
+            print(f"  [retry {tentativa}/{TENTATIVAS}] download: "
+                  f"{type(e).__name__} — {espera}s", flush=True)
+            time.sleep(espera)
+    raise RuntimeError(f"nao foi possivel baixar {url}: {erro}")
+
+
+def le_tabela(path: str, colunas_esperadas: set[str]) -> pd.DataFrame:
+    """
+    Le parquet, csv ou zip-com-csv. O CSV da ANEEL varia em separador e
+    codificacao entre recursos, entao testa as combinacoes e aceita a primeira
+    que traga as colunas esperadas — assim uma mudanca na origem vira erro
+    explicito, nao uma tabela silenciosamente errada.
+    """
+    baixo = path.lower()
+    if baixo.endswith(".parquet"):
+        df = pd.read_parquet(path)
+        faltando = colunas_esperadas - set(df.columns)
+        if faltando:
+            raise ValueError(f"{path}: faltam colunas {sorted(faltando)}")
+        return df
+
+    alvo = path
+    tmpzip = None
+    if baixo.endswith(".zip"):
+        import zipfile
+        with zipfile.ZipFile(path) as z:
+            nomes = [n for n in z.namelist() if n.lower().endswith((".csv", ".txt"))]
+            if not nomes:
+                raise ValueError(f"{path}: zip sem csv dentro ({z.namelist()})")
+            tmpzip = z.extract(nomes[0], os.path.dirname(path) or ".")
+            alvo = tmpzip
+
+    erros = []
+    for sep in (";", ","):
+        for enc in ("utf-8-sig", "latin-1"):
+            try:
+                df = pd.read_csv(alvo, sep=sep, encoding=enc, dtype=str,
+                                 low_memory=False)
+            except Exception as e:
+                erros.append(f"sep={sep!r} enc={enc}: {type(e).__name__}")
+                continue
+            if colunas_esperadas <= set(df.columns):
+                print(f"  lido com sep={sep!r} encoding={enc}: "
+                      f"{len(df)} linhas", flush=True)
+                if tmpzip and os.path.exists(tmpzip):
+                    os.remove(tmpzip)
+                return df
+            erros.append(f"sep={sep!r} enc={enc}: colunas {list(df.columns)[:6]}")
+    if tmpzip and os.path.exists(tmpzip):
+        os.remove(tmpzip)
+    raise ValueError(f"{path}: nao consegui interpretar o CSV. Tentativas: {erros}")
+
+
+def baixa_recurso_como_df(resource_id: str, colunas: set[str],
+                          tmpdir: str) -> tuple[pd.DataFrame, dict]:
+    meta = meta_recurso(resource_id)
+    print(f"  {meta['nome']} ({meta['formato']}, "
+          f"modificado em {meta['modificado_em']})", flush=True)
+    ext = os.path.splitext(meta["url"].split("?")[0])[1] or ".dat"
+    destino = os.path.join(tmpdir, f"{resource_id}{ext}")
+    baixa_arquivo(meta["url"], destino)
+    df = le_tabela(destino, colunas)
+    try:
+        os.remove(destino)
+    except OSError:
+        pass
+    return df, meta
+
+
+def filtra(df: pd.DataFrame, col_ano: str, anos: list[str] | None,
+           inds: list[str] | None) -> pd.DataFrame:
+    if anos:
+        df = df[df[col_ano].astype(str).str.strip().str[:4].isin(anos)]
+    if inds and "SigIndicador" in df.columns:
+        df = df[df["SigIndicador"].astype(str).str.strip().isin(inds)]
+    return df.reset_index(drop=True)
+
+
+# ----------------------------------------------------------------------------
 # Gravacao
 # ----------------------------------------------------------------------------
 def grava(df: pd.DataFrame, nome: str, csv_plano: bool, limiar_gz_mb: float = 8.0):
@@ -179,10 +336,68 @@ def sha256(path: str) -> str:
 
 
 # ----------------------------------------------------------------------------
+def carrega_apurados(fonte: str, anos, inds, tmpdir: str):
+    """Arquivo-fonte completo (padrao) com a API paginada como reserva."""
+    if fonte in ("arquivo", "auto"):
+        try:
+            print("[1/3] apurados — arquivo-fonte completo ...")
+            df, meta = baixa_recurso_como_df(ARQ_APURADOS_PARQUET, COLS_APURADOS,
+                                             tmpdir)
+            return filtra(df, "AnoIndice", anos, inds), "arquivo", meta
+        except Exception as e:
+            if fonte == "arquivo":
+                raise
+            print(f"  [aviso] arquivo falhou ({type(e).__name__}: {e}).\n"
+                  f"          Caindo para a API, que hoje cobre menos anos.",
+                  flush=True)
+
+    print("[1/3] apurados — API paginada ...")
+    f: dict[str, Any] = {}
+    if anos:
+        f["AnoIndice"] = anos
+    if inds:
+        f["SigIndicador"] = inds
+    df = ckan_fetch(RES_APURADOS, f or None)
+    return df.drop(columns=[c for c in ["_id"] if c in df]), "api", {}
+
+
+def carrega_limites(fonte: str, anos, tmpdir: str):
+    if fonte in ("arquivo", "auto"):
+        try:
+            print("\n[2/3] limites — arquivo-fonte completo ...")
+            df, meta = baixa_recurso_como_df(RES_LIMITES, COLS_LIMITES, tmpdir)
+            return (filtra(df, "AnoLimiteQualidade", anos, ["DEC", "FEC"]),
+                    "arquivo", meta)
+        except Exception as e:
+            if fonte == "arquivo":
+                raise
+            print(f"  [aviso] arquivo falhou ({type(e).__name__}: {e}). "
+                  f"Caindo para a API.", flush=True)
+
+    print("\n[2/3] limites — API paginada ...")
+    f: dict[str, Any] = {"SigIndicador": ["DEC", "FEC"]}
+    if anos:
+        f["AnoLimiteQualidade"] = anos
+    df = ckan_fetch(RES_LIMITES, f)
+    return df.drop(columns=[c for c in ["_id"] if c in df]), "api", {}
+
+
+def anos_presentes(df: pd.DataFrame, col: str) -> list[str]:
+    if col not in df.columns:
+        return []
+    s = df[col].astype(str).str.strip().str[:4]
+    return sorted(a for a in s.dropna().unique() if a.isdigit())
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--fonte", default="auto", choices=["auto", "arquivo", "api"],
+                    help="'arquivo' baixa o arquivo-fonte completo do portal "
+                         "(traz o ano corrente); 'api' pagina o datastore, que "
+                         "hoje so vai ate 2025; 'auto' tenta o arquivo e cai "
+                         "para a API se ele falhar")
     ap.add_argument("--anos", default="todos",
-                    help="ex.: 2024,2025 — ou 'todos' para os anos que a API tiver")
+                    help="ex.: 2024,2025 — 'todos' nao filtra nada")
     ap.add_argument("--indicadores", default="DEC,FEC,NumCon",
                     help="SigIndicador dos apurados. 'todos' traz as parcelas "
                          "desagregadas tambem (base bem maior)")
@@ -190,51 +405,62 @@ def main() -> int:
                     help="CSV sem gzip, mesmo quando o arquivo for grande")
     args = ap.parse_args()
 
-    anos = anos_disponiveis() if args.anos == "todos" else \
+    anos = None if args.anos == "todos" else \
         [a.strip() for a in args.anos.split(",") if a.strip()]
-    print(f"anos: {', '.join(anos)}")
-
     inds = None if args.indicadores == "todos" else \
         [i.strip() for i in args.indicadores.split(",") if i.strip()]
-    print(f"indicadores: {', '.join(inds) if inds else 'todos'}\n")
+    print(f"fonte: {args.fonte} | anos: {args.anos} | "
+          f"indicadores: {args.indicadores}\n")
 
-    print("[1/3] apurados ...")
-    f_ap: dict[str, Any] = {"AnoIndice": anos}
-    if inds:
-        f_ap["SigIndicador"] = inds
-    apur = ckan_fetch(RES_APURADOS, f_ap)
-    apur = apur.drop(columns=[c for c in ["_id"] if c in apur])
-    grava(apur, "aneel_continuidade_apurados", args.csv_plano)
+    tmpdir = tempfile.mkdtemp(prefix="aneel_")
+    try:
+        apur, fonte_ap, meta_ap = carrega_apurados(args.fonte, anos, inds, tmpdir)
+        grava(apur, "aneel_continuidade_apurados", args.csv_plano)
 
-    print("\n[2/3] limites ...")
-    lim = ckan_fetch(RES_LIMITES, {"AnoLimiteQualidade": anos,
-                                   "SigIndicador": ["DEC", "FEC"]})
-    lim = lim.drop(columns=[c for c in ["_id"] if c in lim])
-    grava(lim, "aneel_continuidade_limites", args.csv_plano)
+        lim, fonte_li, meta_li = carrega_limites(args.fonte, anos, tmpdir)
+        grava(lim, "aneel_continuidade_limites", args.csv_plano)
 
-    print("\n[3/3] dominio de indicadores ...")
-    dom = ckan_fetch(RES_DOMINIO)
-    dom = dom.drop(columns=[c for c in ["_id", "rank"] if c in dom])
-    grava(dom, "aneel_dominio_indicadores", args.csv_plano)
+        print("\n[3/3] dominio de indicadores ...")
+        dom = ckan_fetch(RES_DOMINIO)
+        dom = dom.drop(columns=[c for c in ["_id", "rank"] if c in dom])
+        grava(dom, "aneel_dominio_indicadores", args.csv_plano)
+    finally:
+        shutil.rmtree(tmpdir, ignore_errors=True)
+
+    anos_ap = anos_presentes(apur, "AnoIndice")
+    anos_li = anos_presentes(lim, "AnoLimiteQualidade")
+    meses = sorted(pd.to_numeric(apur["NumPeriodoIndice"], errors="coerce")
+                   .dropna().astype(int).unique()) if "NumPeriodoIndice" in apur else []
+    ultimo = None
+    if anos_ap and "NumPeriodoIndice" in apur:
+        no_ano = apur[apur["AnoIndice"].astype(str).str.strip().str[:4] == anos_ap[-1]]
+        m = pd.to_numeric(no_ano["NumPeriodoIndice"], errors="coerce").dropna()
+        if len(m):
+            ultimo = f"{anos_ap[-1]}-{int(m.max()):02d}"
 
     meta = {
         "baixado_em_utc": pd.Timestamp.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "anos": anos,
-        "indicadores": inds or "todos",
-        "fonte": {
+        "fonte": {"apurados": fonte_ap, "limites": fonte_li, "dominio": "api"},
+        "pedido": {"anos": args.anos, "indicadores": args.indicadores},
+        "cobertura": {
+            "anos_apurados": anos_ap,
+            "anos_limites": anos_li,
+            "meses_presentes": [int(x) for x in meses],
+            "ultimo_mes_apurado": ultimo,
+        },
+        "origem": {
             "portal": "https://dadosabertos.aneel.gov.br/dataset/"
                       "indicadores-coletivos-de-continuidade-dec-e-fec",
-            "resource_apurados": RES_APURADOS,
-            "resource_limites": RES_LIMITES,
-            "resource_dominio": RES_DOMINIO,
-        },
-        "linhas": {"apurados": len(apur), "limites": len(lim), "dominio": len(dom)},
-        "geracao_na_origem": {
-            "apurados": str(apur["DatGeracaoConjuntoDados"].max())
+            "recurso_apurados": meta_ap.get("nome") or RES_APURADOS,
+            "recurso_apurados_modificado_em": meta_ap.get("modificado_em"),
+            "recurso_limites": meta_li.get("nome") or RES_LIMITES,
+            "recurso_limites_modificado_em": meta_li.get("modificado_em"),
+            "geracao_apurados": str(apur["DatGeracaoConjuntoDados"].max())
             if "DatGeracaoConjuntoDados" in apur else None,
-            "limites": str(lim["DatGeracaoConjuntoDados"].max())
+            "geracao_limites": str(lim["DatGeracaoConjuntoDados"].max())
             if "DatGeracaoConjuntoDados" in lim else None,
         },
+        "linhas": {"apurados": len(apur), "limites": len(lim), "dominio": len(dom)},
         "arquivos": {f: {"bytes": os.path.getsize(os.path.join(DIR_DADOS, f)),
                          "sha256": sha256(os.path.join(DIR_DADOS, f))}
                      for f in sorted(os.listdir(DIR_DADOS))
@@ -243,18 +469,30 @@ def main() -> int:
     with open(os.path.join(DIR_DADOS, "metadados.json"), "w", encoding="utf-8") as fh:
         json.dump(meta, fh, ensure_ascii=False, indent=2)
 
-    print(f"\n[ok] apurados={len(apur)}  limites={len(lim)}  dominio={len(dom)}")
+    print(f"\n[ok] apurados={len(apur)} ({fonte_ap})  "
+          f"limites={len(lim)} ({fonte_li})  dominio={len(dom)}")
+    print(f"     anos apurados: {', '.join(anos_ap) or '-'}")
+    print(f"     ultimo mes apurado: {ultimo or '-'}")
+
     resumo = os.environ.get("GITHUB_STEP_SUMMARY")
     if resumo:
         with open(resumo, "a", encoding="utf-8") as fh:
-            fh.write(f"## Base ANEEL atualizada\n\n"
-                     f"| item | valor |\n|---|---|\n"
-                     f"| anos | {', '.join(anos)} |\n"
-                     f"| indicadores | {', '.join(inds) if inds else 'todos'} |\n"
-                     f"| apurados | {len(apur):,} linhas |\n"
-                     f"| limites | {len(lim):,} linhas |\n"
-                     f"| gerado na origem | "
-                     f"{meta['geracao_na_origem']['apurados']} |\n")
+            fh.write(
+                "## Base ANEEL atualizada\n\n"
+                "| item | valor |\n|---|---|\n"
+                f"| fonte | apurados: {fonte_ap} · limites: {fonte_li} |\n"
+                f"| anos apurados | {', '.join(anos_ap) or '-'} |\n"
+                f"| **último mês apurado** | **{ultimo or '-'}** |\n"
+                f"| anos com limite | {', '.join(anos_li) or '-'} |\n"
+                f"| apurados | {len(apur):,} linhas |\n"
+                f"| limites | {len(lim):,} linhas |\n"
+                f"| gerado na origem | {meta['origem']['geracao_apurados']} |\n"
+                f"| recurso modificado em | "
+                f"{meta['origem']['recurso_apurados_modificado_em']} |\n")
+            if fonte_ap == "api":
+                fh.write("\n> O download do arquivo-fonte falhou e a coleta caiu "
+                         "para a API, que cobre menos anos. Rode de novo para "
+                         "tentar o arquivo completo.\n")
     return 0
 
 
